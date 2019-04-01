@@ -7,4 +7,9 @@ namespace Borlay.Repositories
     {
         ByteArray Id { get; }
     }
+
+    public interface IScoreEntity : IEntity
+    {
+        long Score { get; }
+    }
 }
