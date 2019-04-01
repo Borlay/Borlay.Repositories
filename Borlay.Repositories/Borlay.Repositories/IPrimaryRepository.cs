@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Borlay.Repositories
 {
     [NameScope("PrimaryRepository")]
-    public interface IPrimaryRepository<T>
+    public interface IPrimaryRepository<T> where T : IEntity
     {
         [IdAction(1)]
         Task Save(T entity);
@@ -17,7 +17,7 @@ namespace Borlay.Repositories
         Task<T> Get(ByteArray entityId);
     }
 
-    public interface ISortedPrimaryRepository<T> : IPrimaryRepository<T>
+    public interface ISortedPrimaryRepository<T> : IPrimaryRepository<T> where T : IEntity
     {
         [IdAction(3)]
         Task<T[]> Get(int skip, int take);
