@@ -17,11 +17,4 @@ namespace Borlay.Repositories
     {
         DateTime Date { get; }
     }
-
-    [Flags]
-    public enum Order
-    {
-        Asc = 1,
-        Desc = 2
-    }
 }

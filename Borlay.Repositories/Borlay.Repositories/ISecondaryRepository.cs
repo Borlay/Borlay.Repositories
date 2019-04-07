@@ -1,5 +1,4 @@
 ﻿using Borlay.Arrays;
-using Borlay.Handling.Notations;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,19 +6,11 @@ using System.Threading.Tasks;
 
 namespace Borlay.Repositories
 {
-    [NameScope("SecondaryRepository")]
-    public interface ISecondaryRepository<T> where T : IEntity
+    public interface ISecondaryRepository : ICreateTransaction<ISecondaryTransaction>
     {
-        [IdAction(1)]
-        Task Save(ByteArray userId, T entity);
-
-        [IdAction(2)]
-        Task<T> Get(ByteArray userId, ByteArray entityId);
-    }
-
-    public interface ISortedSecondaryRepository<T> : ISecondaryRepository<T> where T : IEntity
-    {
-        [IdAction(3)]
-        Task<T[]> Get(ByteArray userId, int skip, int take);
+        byte[] Get(ByteArray parentId, ByteArray entityId);
+        KeyValuePair<ByteArray, byte[]>[] Get(ByteArray parentId, ByteArray[] entityIds);
+        IEnumerable<byte[]> Get(ByteArray parentId, OrderType orderType);
+        IEnumerable<byte[]> Get(OrderType orderType);
     }
 }
