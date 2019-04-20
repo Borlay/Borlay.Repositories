@@ -14,6 +14,6 @@ namespace Borlay.Repositories
         IEnumerable<byte[]> Get();
         IEnumerable<byte[]> Get(OrderType orderType);
 
-        Task<bool> Contains(ByteArray entityId);
+        bool Contains(ByteArray entityId);
     }
 }
