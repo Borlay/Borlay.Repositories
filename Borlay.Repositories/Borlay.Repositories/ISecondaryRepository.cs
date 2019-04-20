@@ -10,7 +10,13 @@ namespace Borlay.Repositories
     {
         byte[] Get(ByteArray parentId, ByteArray entityId);
         KeyValuePair<ByteArray, byte[]>[] Get(ByteArray parentId, ByteArray[] entityIds);
+
+        IEnumerable<byte[]> Get(ByteArray parentId);
         IEnumerable<byte[]> Get(ByteArray parentId, OrderType orderType);
         IEnumerable<byte[]> Get(OrderType orderType);
+
+        Task<bool> Contains(ByteArray parentId, ByteArray entityId);
+        Task<bool> Remove(ByteArray parentId, ByteArray entityId);
+        Task<bool> Remove(ByteArray parentId, ByteArray[] entityIds);
     }
 }
