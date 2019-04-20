@@ -16,7 +16,5 @@ namespace Borlay.Repositories
         IEnumerable<byte[]> Get(OrderType orderType);
 
         Task<bool> Contains(ByteArray parentId, ByteArray entityId);
-        Task<bool> Remove(ByteArray parentId, ByteArray entityId);
-        Task<bool> Remove(ByteArray parentId, ByteArray[] entityIds);
     }
 }
