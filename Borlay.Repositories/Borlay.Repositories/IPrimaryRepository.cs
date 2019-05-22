@@ -8,11 +8,11 @@ namespace Borlay.Repositories
 {
     public interface IPrimaryRepository : ICreateTransaction<IPrimaryTransaction>
     {
-        byte[] Get(ByteArray entityId);
-        KeyValuePair<ByteArray, byte[]>[] Get(ByteArray[] entityIds);
+        byte[] GetValue(ByteArray entityId);
 
-        IEnumerable<byte[]> Get();
-        IEnumerable<byte[]> Get(OrderType orderType);
+        KeyValuePair<byte[], byte[]>[] GetValues(ByteArray[] entityIds);
+        IEnumerable<KeyValuePair<byte[], byte[]>> GetValues();
+        IEnumerable<KeyValuePair<byte[], byte[]>> GetValues(OrderType orderType);
 
         bool Contains(ByteArray entityId);
     }

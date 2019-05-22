@@ -9,8 +9,8 @@ namespace Borlay.Repositories
     {
         byte[] AppendValue(ByteArray entityId, byte[] value, int valueLength);
 
-        void AppendIndexes(ByteArray entityId, byte[] key, params Index[] indexes);
-        void AppendOrderIndex(ByteArray entityId, byte[] key, IndexLevel indexLevel, long score, OrderType orders);
+        //void AppendIndexes(ByteArray entityId, byte[] key, params Index[] indexes);
+        void AppendScoreIndex(ByteArray entityId, byte[] key, long score, IndexLevel indexLevel, OrderType orders);
 
         void Remove(ByteArray entityId);
         void Remove(ByteArray[] entityIds);

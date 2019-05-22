@@ -8,12 +8,12 @@ namespace Borlay.Repositories
 {
     public interface ISecondaryRepository : ICreateTransaction<ISecondaryTransaction>
     {
-        byte[] Get(ByteArray parentId, ByteArray entityId);
-        KeyValuePair<ByteArray, byte[]>[] Get(ByteArray parentId, ByteArray[] entityIds);
+        byte[] GetValue(ByteArray parentId, ByteArray entityId);
 
-        IEnumerable<byte[]> Get(ByteArray parentId);
-        IEnumerable<byte[]> Get(ByteArray parentId, OrderType orderType);
-        IEnumerable<byte[]> Get(OrderType orderType);
+        KeyValuePair<byte[], byte[]>[] GetValues(ByteArray parentId, ByteArray[] entityIds);
+        IEnumerable<KeyValuePair<byte[], byte[]>> GetValues(ByteArray parentId);
+        IEnumerable<KeyValuePair<byte[], byte[]>> GetValues(ByteArray parentId, OrderType orderType);
+        IEnumerable<KeyValuePair<byte[], byte[]>> GetValues(OrderType orderType);
 
         bool Contains(ByteArray parentId, ByteArray entityId);
     }
