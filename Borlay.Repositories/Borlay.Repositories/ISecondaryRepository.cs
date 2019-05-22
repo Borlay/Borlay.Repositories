@@ -11,9 +11,9 @@ namespace Borlay.Repositories
         byte[] GetValue(ByteArray parentId, ByteArray entityId);
 
         KeyValuePair<byte[], byte[]>[] GetValues(ByteArray parentId, ByteArray[] entityIds);
-        IEnumerable<KeyValuePair<byte[], byte[]>> GetValues(ByteArray parentId);
-        IEnumerable<KeyValuePair<byte[], byte[]>> GetValues(ByteArray parentId, OrderType orderType);
-        IEnumerable<KeyValuePair<byte[], byte[]>> GetValues(OrderType orderType);
+        IEnumerable<KeyValuePair<byte[], byte[]>> GetValues(ByteArray parentId, bool distinct = false);
+        IEnumerable<KeyValuePair<byte[], byte[]>> GetValues(ByteArray parentId, OrderType orderType, bool distinct = false);
+        IEnumerable<KeyValuePair<byte[], byte[]>> GetValues(OrderType orderType, bool distinct = false);
 
         bool Contains(ByteArray parentId, ByteArray entityId);
     }
